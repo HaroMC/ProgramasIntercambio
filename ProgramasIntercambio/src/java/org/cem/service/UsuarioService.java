@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package org.cem.service;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.cem.entities.Usuario;
 
 /**
  *
  * @author FrancisBrianPC
  */
-@Controller
-@RequestMapping("/verUsuarios.htm")
-public class ConsultarDatosUsuario {
-    
+public interface UsuarioService {
+    public int AgregarUsuario(Usuario usuario);
 }
