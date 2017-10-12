@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-oct-2017 0:48:24 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.cem.entities.Asignatura" table="ASIGNATURA" schema="CEM" optimistic-lock="version">
+        <id name="codigo" type="big_decimal">
+            <column name="CODIGO" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="docente" class="org.cem.entities.Docente" fetch="select">
+            <column name="RUT_DOCENTE" precision="9" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombreAsignatura" type="string">
+            <column name="NOMBRE_ASIGNATURA" length="100" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="500" />
+        </property>
+        <property name="cupos" type="java.lang.Long">
+            <column name="CUPOS" precision="10" scale="0" />
+        </property>
+        <set name="programas" table="PROGRAMA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="COD_ASIGNATURA" precision="38" scale="0" />
+            </key>
+            <one-to-many class="org.cem.entities.Programa" />
+        </set>
+        <set name="calificacions" table="CALIFICACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="COD_ASIGNATURA" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="org.cem.entities.Calificacion" />
+        </set>
+    </class>
+</hibernate-mapping>

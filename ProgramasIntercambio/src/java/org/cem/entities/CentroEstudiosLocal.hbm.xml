@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-oct-2017 0:48:24 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.cem.entities.CentroEstudiosLocal" table="CENTRO_ESTUDIOS_LOCAL" schema="CEM" optimistic-lock="version">
+        <id name="rutPersona" type="int">
+            <column name="RUT_PERSONA" precision="9" scale="0" />
+            <generator class="foreign">
+                <param name="property">persona</param>
+            </generator>
+        </id>
+        <one-to-one name="persona" class="org.cem.entities.Persona" constrained="true"></one-to-one>
+        <property name="estaAcreditada" type="byte">
+            <column name="ESTA_ACREDITADA" precision="2" scale="0" not-null="true" />
+        </property>
+        <set name="postulacionesCels" table="POSTULACIONES_CEL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RUT_CEL" precision="9" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="org.cem.entities.PostulacionesCel" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-oct-2017 0:48:24 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.cem.entities.Persona" table="PERSONA" schema="CEM" optimistic-lock="version">
+        <id name="rut" type="int">
+            <column name="RUT" precision="9" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreCompleto" type="string">
+            <column name="NOMBRE_COMPLETO" length="200" not-null="true" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="FECHA_NACIMIENTO" length="7" />
+        </property>
+        <property name="domicilio" type="string">
+            <column name="DOMICILIO" length="60" not-null="true" />
+        </property>
+        <property name="ciudad" type="string">
+            <column name="CIUDAD" length="40" not-null="true" />
+        </property>
+        <property name="pais" type="string">
+            <column name="PAIS" length="40" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="CORREO" length="60" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" length="40" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="TIPO" length="60" not-null="true" />
+        </property>
+        <set name="usuarios" table="USUARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RUT_PERSONA" precision="9" scale="0" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="org.cem.entities.Usuario" />
+        </set>
+        <one-to-one name="docente" class="org.cem.entities.Docente"></one-to-one>
+        <one-to-one name="alumno" class="org.cem.entities.Alumno"></one-to-one>
+        <one-to-one name="centroEstudiosLocal" class="org.cem.entities.CentroEstudiosLocal"></one-to-one>
+        <one-to-one name="familiaAnfitriona" class="org.cem.entities.FamiliaAnfitriona"></one-to-one>
+    </class>
+</hibernate-mapping>

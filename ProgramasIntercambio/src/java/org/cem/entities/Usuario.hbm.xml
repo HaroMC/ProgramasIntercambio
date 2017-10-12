@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-oct-2017 0:48:24 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.cem.entities.Usuario" table="USUARIO" schema="CEM" optimistic-lock="version">
+        <id name="codigo" type="big_decimal">
+            <column name="CODIGO" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="persona" class="org.cem.entities.Persona" fetch="select">
+            <column name="RUT_PERSONA" precision="9" scale="0" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="perfil" class="org.cem.entities.Perfil" fetch="select">
+            <column name="COD_PERFIL" precision="38" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="30" not-null="true" />
+        </property>
+        <property name="contrasena" type="string">
+            <column name="CONTRASENA" length="60" not-null="true" />
+        </property>
+        <property name="fechaRegistro" type="date">
+            <column name="FECHA_REGISTRO" length="7" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

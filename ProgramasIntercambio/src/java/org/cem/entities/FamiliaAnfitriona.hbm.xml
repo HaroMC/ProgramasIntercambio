@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-oct-2017 0:48:24 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.cem.entities.FamiliaAnfitriona" table="FAMILIA_ANFITRIONA" schema="CEM" optimistic-lock="version">
+        <id name="rutPersona" type="int">
+            <column name="RUT_PERSONA" precision="9" scale="0" />
+            <generator class="foreign">
+                <param name="property">persona</param>
+            </generator>
+        </id>
+        <one-to-one name="persona" class="org.cem.entities.Persona" constrained="true"></one-to-one>
+        <property name="cantidadIntegrantes" type="java.lang.Short">
+            <column name="CANTIDAD_INTEGRANTES" precision="3" scale="0" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="60" not-null="true" />
+        </property>
+        <set name="antecedentes" table="ANTECEDENTE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RUT_FAMILIA" precision="9" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="org.cem.entities.Antecedente" />
+        </set>
+    </class>
+</hibernate-mapping>

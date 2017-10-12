@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-oct-2017 0:48:24 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.cem.entities.Calificacion" table="CALIFICACION" schema="CEM" optimistic-lock="version">
+        <id name="codigo" type="big_decimal">
+            <column name="CODIGO" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="alumno" class="org.cem.entities.Alumno" fetch="select">
+            <column name="RUT_ALUMNO" precision="9" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="asignatura" class="org.cem.entities.Asignatura" fetch="select">
+            <column name="COD_ASIGNATURA" precision="38" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="fechaCalificacion" type="date">
+            <column name="FECHA_CALIFICACION" length="7" not-null="true" />
+        </property>
+        <property name="nota" type="big_decimal">
+            <column name="NOTA" precision="3" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

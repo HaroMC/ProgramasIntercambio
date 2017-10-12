@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-oct-2017 0:48:24 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.cem.entities.Programa" table="PROGRAMA" schema="CEM" optimistic-lock="version">
+        <id name="codigo" type="big_decimal">
+            <column name="CODIGO" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="asignatura" class="org.cem.entities.Asignatura" fetch="select">
+            <column name="COD_ASIGNATURA" precision="38" scale="0" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="100" not-null="true" />
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="FECHA_INICIO" length="7" />
+        </property>
+        <property name="fechaTermino" type="date">
+            <column name="FECHA_TERMINO" length="7" />
+        </property>
+        <property name="valor" type="int">
+            <column name="VALOR" precision="7" scale="0" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="60" not-null="true" />
+        </property>
+        <set name="postulacionesAlumnoses" table="POSTULACIONES_ALUMNOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="COD_PROGRAMA" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="org.cem.entities.PostulacionesAlumnos" />
+        </set>
+        <set name="postulacionesCels" table="POSTULACIONES_CEL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="COD_PROGRAMA" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="org.cem.entities.PostulacionesCel" />
+        </set>
+    </class>
+</hibernate-mapping>
