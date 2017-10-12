@@ -28,5 +28,6 @@ public class UsuarioController {
     @RequestMapping("/agregarUsuarios.htm")
     public String agregarUsuario(){
         Usuario u = new Usuario();
+        return "exito";
     }
 }
