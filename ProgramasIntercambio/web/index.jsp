@@ -14,7 +14,7 @@
     <body>
         <h1>Ingreso de programa</h1>
         <%-- formulario de ingreso de un programa--%>
-        <form action="" method="">
+        <form action="AgregarPrograma" method="post">
             <div class="form-group">
           Nombre del programa: <input type="text" name="nombreDePrograma"/><br/>
             </div>
