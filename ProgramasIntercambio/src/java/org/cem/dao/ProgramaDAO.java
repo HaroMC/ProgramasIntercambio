@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import org.cem.connection.HibernateUtil;
 import org.cem.entities.Asignatura;
+import org.cem.entities.Docente;
 import org.cem.entities.Programa;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -22,7 +23,7 @@ import org.hibernate.Transaction;
  */
 public class ProgramaDAO {
     
-    private Session session;
+    private final Session session;
     
     
     /**
@@ -63,10 +64,11 @@ public class ProgramaDAO {
     
     
     /**
-     * Lo que hace este método es buscar el último código que esté regstrado
-     * en la base de datos, de tal modo que, al agregar un nuevo programa,
-     * sumarle 1 al nuevo código (Este método puede ser reemplazado a futuro
-     * por un trigger en la base de datos que simule un atributo autoincremental).
+     * Lo que hace este método es buscar el último código que esté
+     * registrado en la base de datos, de tal modo que, al agregar un
+     * nuevo programa, sumarle 1 al nuevo código (Este método puede ser
+     * reemplazado a futuro por un trigger en la base de datos que supla
+     * la función de un atributo autoincremental).
      * 
      * @return Un objeto de tipo java.util.List con un único valor del último
      * código registrado.
@@ -87,4 +89,8 @@ public class ProgramaDAO {
         }*/
         return result;
     }
+    
+    
+    
+    
 }

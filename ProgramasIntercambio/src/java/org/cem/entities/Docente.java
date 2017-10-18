@@ -67,9 +67,7 @@ public class Docente  implements java.io.Serializable {
         this.asignaturas = asignaturas;
     }
 
-
-
-
+    
 }
 
 
