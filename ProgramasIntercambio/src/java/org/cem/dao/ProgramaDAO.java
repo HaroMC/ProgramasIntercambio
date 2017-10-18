@@ -40,23 +40,14 @@ public class ProgramaDAO {
             int valor, String tipoPrograma, String paisDestino,
             Date fechaInicio, Date fechaTermino) {
         
-        
         boolean result = false;
                
-        if (getUltimoCodigo() != null) {
+        /*if (getUltimoCodigo() != null) {
             BigDecimal codigo = (BigDecimal) getUltimoCodigo().get(0).getCodigo();
             
             Asignatura asig = new Asignatura(
             Programa prog = new Programa(codigo, nombreAsignatura, nombrePrograma, fechaInicio, fechaTermino, valor, "No_publicado", null, null);
-        }
-        
-        
-        
-        
-        
-        
-        
-        
+        }*/
         
         try {
             String hql = "";
