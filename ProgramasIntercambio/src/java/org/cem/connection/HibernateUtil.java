@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
  *
  * @author HaroMC
  */
-public class HibernateConn {
+public class HibernateUtil {
 
     private static final SessionFactory sessionFactory;
     
