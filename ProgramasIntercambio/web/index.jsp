@@ -10,22 +10,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Index</title>
+        <!-- Link Bootstrap CSS -->
+        <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" >
     </head>
     <body>
-        <table>
-            <tr>
-                <h1>Menu Principal</h1>
-            </tr>
-            <tr>
-                <td>
-                    <a href="menuCEM.jsp">Menu Usuario CEM</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="menuCEL.jsp">Menu Usuario CEL</a>
-                </td>
-            </tr>
-        </table>
-    </body>
+        <div class="container container-fluid">
+            <h1 class="glyphicon glyphicon-bell" >Menu Principal</h1>
+            <div class="row">
+                <div class="col-md-1"><a href="menuCEM.jsp" class="label label-primary">Menu Usuario CEM</a></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"><a href="menuCEL.jsp" class="label label-primary">Menu Usuario CEL</a></div>
+            </div>
+        </div>
+</body>
 </html>
