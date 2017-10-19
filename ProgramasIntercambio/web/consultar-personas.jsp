@@ -8,6 +8,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="org.cem.entities.Persona" %>
 
+
+
+<%  %>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +21,7 @@
     </head>
     <body>
         <h1>Personas</h1>
-        Cantidad de personas en BD:
+        Personas en BD:
         <table>
             <c:forEach items="${personas}" var="persona">
             <tr>

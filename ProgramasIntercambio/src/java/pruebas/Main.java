@@ -27,5 +27,17 @@ public class Main {
             System.out.println("NO SE HA PODIDO ESTABLECER LA CONEXIÓN.\n"
                     + "ERROR: " + hex);
         }
+        
+        /*try {
+            if (daoPersona.registrarPersona()) {
+                System.out.println("\nPERSONA REGISTRADA.");
+            }
+            else {
+                System.out.println("\nERROR EN LA INSERSIÓN.");
+            }
+        }
+        catch (HibernateException hex) {
+            throw new HibernateException("ERROR: ", hex);
+        }*/
     }
 }
