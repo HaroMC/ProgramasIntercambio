@@ -16,6 +16,10 @@
         <servlet-name>verDocentesRegistrados</servlet-name>
         <servlet-class>Servlets.verDocentesRegistrados</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PersonasRegistradas</servlet-name>
+        <servlet-class>Servlets.PersonasRegistradas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>verDocentesRegistrados</servlet-name>
         <url-pattern>/verDocentesRegistrados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PersonasRegistradas</servlet-name>
+        <url-pattern>/PersonasRegistradas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
