@@ -41,7 +41,7 @@ public class AgregarPersona extends HttpServlet {
         try {
             Persona objPersona = new Persona();
             
-            //<editor-fold defaultstate="collapsed" desc=" Datos crudos de prueba ">
+            //<editor-fold defaultstate="collapsed" desc=" Datos de prueba en crudo ">
             objPersona.setRut(125478966);
             objPersona.setNombreCompleto("Roberto Alejandro García Lopez");
             DateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
@@ -63,10 +63,7 @@ public class AgregarPersona extends HttpServlet {
                 out.println("No se pudo agregar la persona.");
             }
         }
-        catch (HibernateException hex) {
-            throw new HibernateException("Error: ", hex);
-        }
-        catch (ParseException pex) { }
+        catch (HibernateException | ParseException ex) {}
     }
 
     @Override

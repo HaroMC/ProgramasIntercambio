@@ -1,58 +1,68 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.cem.dao.AsignaturaDAO;
+import org.cem.dao.DocenteDAO;
+import org.cem.dao.ProgramaDAO;
+import org.cem.entities.Asignatura;
 import org.cem.entities.Programa;
-import org.cem.entities.Usuario;
 
-/**
- *
- * @author David
- */
-/*
-AQUI SE ESPECIFICA EL NOMBRE DEL SERVLET CON EL CUAL DEBE SER LLAMADO
-*/
+
 @WebServlet(name = "AgregarPrograma", urlPatterns = {"/AgregarPrograma"})
 public class AgregarPrograma extends HttpServlet {
-
-    //Como el formulario lo solicita por post, salta directamente a este sector
+    
+    private ProgramaDAO daoPrograma;
+    private AsignaturaDAO daoAsignatura;
+    private DocenteDAO daoDocente;
+    
+    @Override
+    public void init() {
+        daoPrograma = new ProgramaDAO();
+        daoAsignatura = new AsignaturaDAO();
+    }
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Instancio
-        Programa p = new Programa();
-        //le asigno los valores que recibo desde el formulario
-        p.setNombre(request.getParameter("nombreDePrograma"));
-        //faltan los demàs
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* Probaremos si hemos recibido correctamente los datos al servlet mostrandolos por pantalla */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AgregarPrograma</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Nombre del programa: " + p.getNombre() + "</h1>");
-            //aqui lo mismo pero con los parametros distintos.
-            out.println("</body>");
-            out.println("</html>");
+        
+        try {
+            DateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+            Programa objPrograma = new Programa();
             
+            //<editor-fold defaultstate="collapsed" desc=" Datos de prueba en crudo ">
+            Asignatura objAsignatura = daoAsignatura.obtenerAsignatura();
+            //</editor-fold>
             
+            //<editor-fold defaultstate="collapsed" desc=" Datos de prueba en crudo ">
+            objPrograma.setCodigo(BigDecimal.ZERO);
+            objPrograma.setNombre(request.getParameter("nombreDePrograma"));
+            Date fechaInicio = formatoFecha.parse(request.getParameter("fechaInicio"));
+            objPrograma.setFechaInicio(fechaInicio);
+            Date fechaTermino = formatoFecha.parse(request.getParameter("fechaTermino"));
+            objPrograma.setFechaTermino(fechaTermino);
+            objPrograma.setValor(Integer.parseInt(request.getParameter("valor")));
+            objPrograma.setEstado("No publicado");
+            //</editor-fold>
             
-            // en vez de mostrar por pantalla, aqui va la conecc al DAO, el cual realiza 
-            // las solicitudes a la conn para realizar los cambios.
+            PrintWriter out = response.getWriter();
+            if (daoPrograma.agregar(objPrograma)) {
+                out.println("Programa agregado correctamente.");
+            }
+            else {
+                out.println("No se pudo agregar el programa.");
+            }
         }
+        catch (NumberFormatException | ParseException ex) {}
     }
-
 }

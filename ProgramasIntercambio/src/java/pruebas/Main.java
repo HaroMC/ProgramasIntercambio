@@ -12,7 +12,8 @@ public class Main {
         PersonaDAO daoPersona = new PersonaDAO();
         
         try {
-            List<Persona> personas = daoPersona.getPersonas();
+            List<Object> listado = daoPersona.obtenerListado();
+            List<Persona> personas = daoPersona.convertirListado(listado);
             if (personas != null) {
                 System.out.println("\nPERSONAS ENCONTRADAS:\n");
                 for (Persona p : personas) {

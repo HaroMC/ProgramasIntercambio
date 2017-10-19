@@ -1,5 +1,7 @@
 package org.cem.dao;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import org.cem.connection.HibernateUtil;
 import org.cem.entities.Persona;
@@ -14,10 +16,9 @@ public class PersonaDAO implements ICrud {
     public PersonaDAO() {
         this.session = HibernateUtil.getSessionFactory().openSession();
     }
-        
+    
     @Override
     public boolean agregar(Object objParam) {
-        
         boolean resultado = false;
         try {
             Persona objPersona = (Persona) objParam;
@@ -67,7 +68,17 @@ public class PersonaDAO implements ICrud {
     }
 
     @Override
-    public int buscarUltimoID() {
+    public BigDecimal buscarUltimoID() {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    public List<Persona> convertirListado(List<Object> listado) {
+        List<Persona> personas = new ArrayList<>();
+        for (Object object : listado) {
+            if (object instanceof Persona) {
+                personas.add((Persona) object);
+            }
+        }
+        return personas;
     }
 }

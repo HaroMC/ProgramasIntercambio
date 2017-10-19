@@ -1,5 +1,6 @@
 package org.cem.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface ICrud {
@@ -14,5 +15,5 @@ public interface ICrud {
     
     public Object buscarPorID(int id);
     
-    public int buscarUltimoID();
+    public BigDecimal buscarUltimoID();
 }
