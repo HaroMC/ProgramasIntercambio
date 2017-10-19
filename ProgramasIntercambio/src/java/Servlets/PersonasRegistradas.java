@@ -73,7 +73,7 @@ public class PersonasRegistradas extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<Persona> listado = personas.getPersonas();
+        List<Object> listado = personas.obtenerListado();
         request.setAttribute("personas", listado);
         request.getRequestDispatcher("consultar-personas.jsp")
                .forward(request, response);

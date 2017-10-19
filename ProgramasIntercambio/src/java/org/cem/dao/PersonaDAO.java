@@ -1,9 +1,7 @@
 package org.cem.dao;
 
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import org.cem.connection.HibernateUtil;
 import org.cem.entities.Persona;
@@ -11,8 +9,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-
-public class PersonaDAO {
+public class PersonaDAO implements ICrud {
     
     private final Session session;
     
@@ -20,11 +17,41 @@ public class PersonaDAO {
         this.session = HibernateUtil.getSessionFactory().openSession();
     }
     
-    public List<Persona> getPersonas() {
-        List<Persona> personas = null;
+    @Override
+    public boolean agregar(Object objParam) {
+        boolean resultado = false;
+        try {
+            Persona objPersona = (Persona) objParam;
+            session.beginTransaction();
+            session.save(objPersona);
+            session.getTransaction().commit();
+            resultado = true;
+        }
+        catch (HibernateException hex) {
+            throw new HibernateException("Error: ", hex);
+        }
+        finally {
+            session.close();
+        }
+        return resultado;
+    }
+
+    @Override
+    public boolean modificar(Object objParam, int id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean eliminar(int id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<Object> obtenerListado() {
+        List<Object> personas = null;
         try {
             Query hql = session.createQuery("SELECT p FROM Persona p");
-            personas = (List<Persona>) hql.list();
+            personas = (List<Object>) hql.list();
         }
         catch (HibernateException hex) {
             System.out.println("Error: " + hex);
@@ -34,51 +61,24 @@ public class PersonaDAO {
         }
         return personas;
     }
+
+    @Override
+    public Object buscarPorID(int id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public BigDecimal buscarUltimoID() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
-    /*public boolean registrarPersona(int rut, String nombreCompleto,
-            Date fechaNacimiento, String domicilio, String ciudad, String pais,
-            String correo, String telefono, String tipo) {*/
-    public boolean registrarPersona() {
-        
-        boolean resultado = false;
-        
-        Persona objPersona = new Persona();
-        /*objPersona.setRut(rut);
-        objPersona.setNombreCompleto(nombreCompleto);
-        objPersona.setFechaNacimiento(fechaNacimiento);
-        objPersona.setDomicilio(domicilio);
-        objPersona.setCiudad(ciudad);
-        objPersona.setPais(pais);
-        objPersona.setCorreo(correo);
-        objPersona.setTelefono(telefono);
-        objPersona.setTipo(tipo);*/
-        
-        try {
-            objPersona.setRut(125478966);
-            objPersona.setNombreCompleto("Roberto Alejandro García Lopez");
-            DateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
-            Date fecha = formateador.parse("1964-06-12");
-            objPersona.setFechaNacimiento( fecha );
-            objPersona.setDomicilio("Calle 2345");
-            objPersona.setCiudad("Barcelona");
-            objPersona.setPais("España");
-            objPersona.setCorreo("roberto.garcia@correo.com");
-            objPersona.setTelefono("2547-6985-32");
-            objPersona.setTipo("Alumno");
-            session.beginTransaction();
-            session.save(objPersona);
-            session.getTransaction().commit();
-            resultado = true;
+    public List<Persona> convertirListado(List<Object> listado) {
+        List<Persona> personas = new ArrayList<>();
+        for (Object object : listado) {
+            if (object instanceof Persona) {
+                personas.add((Persona) object);
+            }
         }
-        catch (HibernateException hex) {
-            throw new HibernateException("Error: ", hex);
-        }
-        catch (ParseException pex) {
-            System.out.println("Hola");
-        }
-        finally {
-            session.close();
-        }
-        return resultado;
+        return personas;
     }
 }

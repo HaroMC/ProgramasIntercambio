@@ -47,7 +47,8 @@ public class verDocentesRegistrados extends HttpServlet {
             throws ServletException, IOException {
                 
         DocenteDAO daoDoc = new DocenteDAO();
-        List<Docente> docentes = daoDoc.getDocentes();
+        List<Object> listado = daoDoc.obtenerListado();
+        List<Docente> docentes = null;
         request.setAttribute("docentes", docentes);
         request.getRequestDispatcher("listadoDocentes.jsp")
                .forward(request, response);

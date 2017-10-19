@@ -1,68 +1,61 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.cem.dao;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import org.cem.connection.HibernateUtil;
-import org.cem.entities.Asignatura;
-import org.cem.entities.Docente;
+import org.cem.entities.Persona;
 import org.cem.entities.Programa;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
-/**
- *
- * @author HaroMC
- */
-public class ProgramaDAO {
+public class ProgramaDAO implements ICrud {
     
     private final Session session;
     
-    
-    /**
-     * Constructor vacío que instancia el DAO para los programas, obteniendo una
-     * conexión a la base de datos mediante Hibernate.
-     */
     public ProgramaDAO() {
-        
-        this.session = HibernateUtil.getSessionFactory().getCurrentSession();
+        this.session = HibernateUtil.getSessionFactory().openSession();
     }
     
-    
-    
-    public boolean agregarPrograma(String nombrePrograma, String nombreAsignatura,
-            int valor, String tipoPrograma, String paisDestino,
-            Date fechaInicio, Date fechaTermino) {
-        
-        boolean result = false;
-        
-        /*if (getUltimoCodigo() != null) {
-            BigDecimal codigo = (BigDecimal) getUltimoCodigo().get(0).getCodigo();
-            
-            Asignatura asig = new Asignatura(
-            Programa prog = new Programa(codigo, nombreAsignatura, nombrePrograma, fechaInicio, fechaTermino, valor, "No_publicado", null, null);
-        }*/
-        
+    @Override
+    public boolean agregar(Object objParam) {
+        boolean resultado = false;
         try {
-            String hql = "";
+            Programa objPrograma = (Programa) objParam;
+            session.beginTransaction();
+            session.save(objPrograma);
+            session.getTransaction().commit();
+            resultado = true;
         }
         catch (HibernateException hex) {
-            System.out.println("Error: " + hex);
+            throw new HibernateException("Error: ", hex);
         }
-        /*finally {
+        finally {
             session.close();
-        }*/
-        return result;
+        }
+        return resultado;
     }
-    
-    
+
+    @Override
+    public boolean modificar(Object objParam, int id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean eliminar(int id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<Object> obtenerListado() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Object buscarPorID(int id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
     /**
      * Lo que hace este método es buscar el último código que esté
      * registrado en la base de datos, de tal modo que, al agregar un
@@ -73,24 +66,32 @@ public class ProgramaDAO {
      * @return Un objeto de tipo java.util.List con un único valor del último
      * código registrado.
      */
-    private List<Programa> getUltimoCodigo() {
-        
-        List result = null;
+    @Override
+    public BigDecimal buscarUltimoID() {
+        BigDecimal resultado = BigDecimal.ZERO;
         try {
-            String hql = "select max(codigo) from Programa";
-            Transaction tr = session.beginTransaction();
-            result = session.createQuery(hql).list();
+            Programa objPrograma = (Programa) session
+                    .createQuery("FROM Programa ORDER BY codigo DESC")
+                    .setMaxResults(1)
+                    .uniqueResult();
+            resultado = objPrograma.getCodigo();
         }
         catch (HibernateException hex) {
             System.out.println("Error: " + hex);
         }
-        /*finally {
+        finally {
             session.close();
-        }*/
-        return result;
+        }
+        return resultado;
     }
     
-    
-    
-    
+    public List<Programa> convertirListado(List<Object> listado) {
+        List<Programa> programas = new ArrayList<>();
+        for (Object object : listado) {
+            if (object instanceof Persona) {
+                programas.add((Programa) object);
+            }
+        }
+        return programas;
+    }
 }
