@@ -154,10 +154,11 @@ public class Persona  implements java.io.Serializable {
     public void setFamiliaAnfitriona(FamiliaAnfitriona familiaAnfitriona) {
         this.familiaAnfitriona = familiaAnfitriona;
     }
-
-
-
-
+    
+    @Override
+    public String toString() {
+        return "Nombre : " + nombreCompleto + "\nRut    : " + rut + "\n";
+    }
 }
 
 

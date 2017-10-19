@@ -51,6 +51,11 @@
                     <a href="falta crearlo">Ver Programas</a>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <a href="/WEB-INF/jsp/listadoDocentes.jsp">Ver docentes registrados</a>
+                </td>
+            </tr>
         </table>
     </body>
 </html>
