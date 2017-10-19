@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,9 +13,6 @@
         <title>Listado de docentes</title>
     </head>
     <body>
-        <c:forEach items="${docentes}" var="d">
-            ${d.getRutPersona()}
-            <br>
-        </c:forEach>
+        Hola, mensaje de prueba para ver si la página logra cargar.
     </body>
 </html>

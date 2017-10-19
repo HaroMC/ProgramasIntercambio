@@ -50,21 +50,21 @@ public class PersonasRegistradas extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
+        //try {
             List<Persona> listado = personas.getPersonas();
-            //request.setAttribute("personas", listado);
+            request.setAttribute("personas", listado);
+            
+            /*int total = 0;
             if (listado != null) {
-                request.setAttribute("total", listado.size());
+                total = listado.size();
             }
-            else {
-                request.setAttribute("total", 0);
-            }
-            request.getRequestDispatcher("/WEB-INF/jsp/consultar-personas.jsp")
-                   .forward(request, response);
-        }
+            request.setAttribute("total", total);*/
+            
+            request.getRequestDispatcher("/consultar-personas.jsp").forward(request, response);
+        /*}
         catch (HibernateException hex) {
             throw new ServletException("Error en la consulta a la base de datos.", hex);
-        }
+        }*/
     }
     
     

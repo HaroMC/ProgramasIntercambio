@@ -32,24 +32,6 @@ public class verDocentesRegistrados extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        response.setContentType("text/html;charset=UTF-8");
-        /*try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Listado de docentes</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Mostrando RUN de docentes registrados en la base de datos</h1>");
-            out.println("<br>");
-            for (Docente d : docentes) {
-                out.println("Docente: " + d.getRutPersona());
-                out.println("<br>");
-            }
-            out.println("</body>");
-            out.println("</html>");
-        }*/
     }
 
     /**
@@ -67,7 +49,7 @@ public class verDocentesRegistrados extends HttpServlet {
         DocenteDAO daoDoc = new DocenteDAO();
         List<Docente> docentes = daoDoc.getDocentes();
         request.setAttribute("docentes", docentes);
-        request.getRequestDispatcher("/WEB-INF/jsp/listadoDocentes.jsp")
+        request.getRequestDispatcher("listadoDocentes.jsp")
                .forward(request, response);
     }
 

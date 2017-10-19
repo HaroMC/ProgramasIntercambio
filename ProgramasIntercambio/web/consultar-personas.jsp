@@ -4,8 +4,9 @@
     Author     : Kevin
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="org.cem.entities.Persona" %>
 
 <!DOCTYPE html>
 <html>
@@ -15,9 +16,12 @@
     </head>
     <body>
         <h1>Personas</h1>
+        Cantidad de personas en BD:
         <table>
-            <c:forEach items="${personas}" var="p">
-                ${p} <br>
+            <c:forEach items="${personas}" var="persona">
+            <tr>
+                <td> <c:out value="${persona.id}" /> </td>
+            </tr>
             </c:forEach>
         </table>
     </body>
