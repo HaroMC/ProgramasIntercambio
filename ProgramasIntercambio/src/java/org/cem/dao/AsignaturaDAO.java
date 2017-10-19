@@ -21,6 +21,4 @@ public class AsignaturaDAO {
     public AsignaturaDAO() {
         this.session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
-    
-    
 }
