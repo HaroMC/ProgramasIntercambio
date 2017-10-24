@@ -28,8 +28,8 @@
                     <li><a href="CEL_postulaciones.jsp">Postulaciones</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Iniciar Sesion</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Registrarse</a></li>
                 </ul>
             </div>
         </nav>

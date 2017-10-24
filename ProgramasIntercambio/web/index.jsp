@@ -20,7 +20,7 @@
                 <div class="col-md-1"><a href="menuCEM.jsp" class="label label-primary">Menu Usuario CEM</a></div>
             </div>
             <div class="row">
-                <div class="col-md-1"><a href="menuCEL.jsp" class="label label-primary">Menu Usuario CEL</a></div>
+                <div class="col-md-1"><a href="CEL_home.jsp" class="label label-primary">Menu Usuario CEL</a></div>
             </div>
         </div>
 </body>

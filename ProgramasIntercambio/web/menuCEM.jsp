@@ -10,52 +10,100 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Menu Usuario CEM</title>
-        <!-- Link Bootstrap CSS -->
-        <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" >
-        <!--Link J.S.-->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     </head>
     <body>
-        <div class="container container-fluid">
-            <div class="row">
-            <h1 class="glyphicon glyphicon-bell" >Menu Usuario CEM</h1>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">WebSiteName</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="CEM_home.jsp">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administracion de Usuarios
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Alumnos</a></li>
+                            <li><a href="CEM_administracion_familia.jsp">Familia</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="CEL_postulaciones.jsp">Administracion de programas</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Consultar Postulaciones
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">CEL's</a></li>
+                            <li><a href="#">Alumnos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
             </div>
-            <div class=""
-            <div class="row">
-                <div class="col-md-4"><a href="agregarPrograma.jsp" class="btn btn-default">Agregar Programa</a></div>
-                <div class="col-md-4"><a href="editarPrograma.jsp" class="btn btn-default">Editar Programa (falta)</a></div>
-                <div class="col-md-4"><a href="eliminarPrograma.jsp" class="btn btn-default">Eliminar Programa (falta)</a></div>
+        </nav>
+        <!-- <div class="panel panel-default">
+
+            <div class="container">
+                <h2>tablas con Programas a los cuales puede postular </h2>           
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nombre del Programa</th>
+                            <th>Asignatura</th>
+                            <th>Docente que la imparte</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>July</td>
+                            <td>Dooley</td>
+                            <td>july@example.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary">
+                    Postular
+                </button>
             </div>
-            <div class="row">
-            </div>
-        </div>        <h1>Menu Usuario CEM</h1>
-        <table>
-            <tr>
-                <td>
-                    <a href="agregarPrograma.jsp">Agregar Programa</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="falta crearlo">Editar Programa</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="falta crearlo">Eliminar Programa</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="falta crearlo">Ver Programas</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="/WEB-INF/jsp/listadoDocentes.jsp">Ver docentes registrados</a>
-                </td>
-            </tr>
-        </table>
+            <div class="container">
+                <h2>Programas a los que estas postulando</h2>           
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nombre del Programa</th>
+                            <th>Asignatura</th>
+                            <th>Docente que la imparte</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary">
+                    Eliminar Postulación
+                </button>
+            </div> -->
     </body>
 </html>

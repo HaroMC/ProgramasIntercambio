@@ -1,6 +1,6 @@
 <%-- 
-    Document   : postulaciones
-    Created on : 19-10-2017, 4:35:45
+    Document   : CEM_administracion_familia
+    Created on : 23-10-2017, 23:12:45
     Author     : Bugueño
 --%>
 
@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,9 +23,24 @@
                     <a class="navbar-brand" href="#">WebSiteName</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="CEL_home.jsp">Home</a></li>
-                    <li><a href="CEL_calificaciones.jsp">Calificaciones</a></li>
-                    <li class="active"><a href="CEL_postulaciones.jsp">Postulaciones</a></li>
+                    <li><a href="CEM_home.jsp">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administracion de Usuarios
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Alumnos</a></li>
+                            <li class="active"><a href="#">Familia</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="CEL_postulaciones.jsp">Administracion de programas</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Consultar Postulaciones
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">CEL's</a></li>
+                            <li><a href="#">Alumnos</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -34,8 +49,8 @@
             </div>
         </nav>
         <div class="container">
-            <h2>Programas a los cuales puede postular </h2>      
-            <p>Si necesitas buscar un programa en especifico puedes hacerlo aqui:</p>
+            <h2>Familias</h2>      
+            <p>Buscar una familia puedes hacerlo aqui:</p>
             <input class="form-control" id="myInput" type="text" placeholder="Escribe aca lo que buscas..">
             <br>
             <table class="table table-bordered table-striped">
@@ -70,13 +85,19 @@
                 </tbody>
             </table>
             <button type="button" class="btn btn-primary">
-                Postular
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <button type="button" class="btn btn-primary">
+                <i class="glyphicon glyphicon-pencil"></i>
+            </button>
+             <button type="button" class="btn btn-primary">
+                <i class="glyphicon glyphicon-minus"></i>
             </button>
         </div>
 
 
         <div class="container">
-            <h2>Programas a los que estas postulando </h2>      
+            <h2>Antecedentes</h2>      
             <p>Si necesitas buscar un programa a los cuales has postulado hazlo aqui:</p>
             <input class="form-control" id="myInput2" type="text" placeholder="Escribe aca lo que buscas..">
             <br>
@@ -115,27 +136,5 @@
                 Eliminar Postulación
             </button>
         </div>
-        <script>
-            $(document).ready(function () {
-                $("#myInput").on("keyup", function () {
-                    var value = $(this).val().toLowerCase();
-                    $("#myTable tr").filter(function () {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
-                });
-            });
-        </script>
-          <script>
-            $(document).ready(function () {
-                $("#myInput2").on("keyup", function () {
-                    var value = $(this).val().toLowerCase();
-                    $("#myTable2 tr").filter(function () {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
-                });
-            });
-        </script>
-
-
     </body>
 </html>

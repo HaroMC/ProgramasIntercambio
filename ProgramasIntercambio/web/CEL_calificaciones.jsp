@@ -17,10 +17,25 @@
 
     </head>
     <body>
-        <h1>Esta vista de CaLIFICACIONES del perfil cel</h1>    
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">WebSiteName</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="CEL_home.jsp">Home</a></li>
+                    <li class="active"><a href="CEL_calificaciones.jsp">Calificaciones</a></li>
+                    <li><a href="CEL_postulaciones.jsp">Postulaciones</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </nav>    
         <div class="container">
             <h2>tablas con datos de Programas </h2>           
-            <table class="table table-hover">
+            <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>Firstname</th>
@@ -49,7 +64,7 @@
         </div>
         <div class="container">
             <h2>Notas por Asignatura</h2>           
-            <table class="table table-hover">
+            <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>Nombre  Alumno</th>
@@ -66,16 +81,28 @@
                         <td>John</td>
                         <td>Doe</td>
                         <td>john@example.com</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Mary</td>
                         <td>Moe</td>
                         <td>mary@example.com</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>July</td>
                         <td>Dooley</td>
                         <td>july@example.com</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
