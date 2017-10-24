@@ -41,31 +41,51 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Fecha de Inicio</th>
+                        <th>Fecha de Termino</th>
+                        <th>Valor</th>
+                        <th>Estado</th>
+                        <th>Codigo_asignatura</th>
                     </tr>
                 </thead>
                 <tbody id="myTable">
                     <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>john@example.com</td>
+                        <td>001</td>>
+                        <td>Ingles</td>
+                        <td>11/06/1017</td>
+                        <td>11/07/1017</td>
+                        <td>$1.800.000</td>
+                        <td>Estado</td>
+                        <td>002</td>
                     </tr>
                     <tr>
-                        <td>Mary</td>
-                        <td>Moe</td>
-                        <td>mary@mail.com</td>
+                        <td>002</td>>
+                        <td>Recursos Humanos</td>
+                        <td>11/06/1017</td>
+                        <td>11/07/1017</td>
+                        <td>$1.400.000</td>
+                        <td>Estado</td>
+                        <td>003</td>
                     </tr>
                     <tr>
-                        <td>July</td>
-                        <td>Dooley</td>
-                        <td>july@greatstuff.com</td>
+                        <td>003</td>>
+                        <td>Desarrollo en MEAN</td>
+                        <td>11/06/1017</td>
+                        <td>11/07/1017</td>
+                        <td>$1.900.000</td>
+                        <td>Estado</td>
+                        <td>004</td>
                     </tr>
                     <tr>
-                        <td>Anja</td>
-                        <td>Ravendale</td>
-                        <td>a_r@test.com</td>
+                        <td>004</td>>
+                        <td>Desarrollo Full Stack</td>
+                        <td>11/06/1017</td>
+                        <td>11/07/1017</td>
+                        <td>$1.900.000</td>
+                        <td>Estado</td>
+                        <td>005</td>
                     </tr>
                 </tbody>
             </table>
@@ -125,7 +145,7 @@
                 });
             });
         </script>
-          <script>
+        <script>
             $(document).ready(function () {
                 $("#myInput2").on("keyup", function () {
                     var value = $(this).val().toLowerCase();
