@@ -41,8 +41,8 @@
                 Aqui van los datos del cel
             </div>
             <div class="container">
-                <h2>tablas con datos de Programas </h2>           
-                <table class="table table-hover">
+                <h2>Programas</h2>           
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Firstname</th>
@@ -70,8 +70,8 @@
                 </table>
             </div>
             <div class="container">
-                <h2>tablas con datos de Asignatura</h2>           
-                <table class="table table-hover">
+                <h2>Asignaturas</h2>           
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Firstname</th>
