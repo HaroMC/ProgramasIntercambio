@@ -31,7 +31,14 @@
                             <li><a href="CEM_administracion_familia.jsp">Familia</a></li>
                         </ul>
                     </li>
-                    <li><a href="CEL_postulaciones.jsp">Administracion de programas</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administracion de programas
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Ver listado de Programas</a></li>
+                            <li><a href="#">Agregar Programas</a></li>
+                        </ul>
+                    </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Consultar Postulaciones
                             <span class="caret"></span></a>
