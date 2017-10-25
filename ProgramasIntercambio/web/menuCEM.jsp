@@ -22,12 +22,12 @@
                     <a class="navbar-brand" href="#">WebSiteName</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="CEM_home.jsp">Home</a></li>
+                    <li><a href="menuCEM.jsp">Home</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administracion de Usuarios
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Alumnos</a></li>
+                            <li><a href="CEM_administracion_alumnos.jsp">Alumnos</a></li>
                             <li><a href="CEM_administracion_familia.jsp">Familia</a></li>
                         </ul>
                     </li>
@@ -35,8 +35,8 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administracion de programas
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Ver listado de Programas</a></li>
-                            <li><a href="agregarPrograma.jsp">Agregar Programas</a></li>
+                            <li><a href="CEM_administrar_programas.jsp">Ver listado de Programas</a></li>
+                            <li><a href="CEM_agregarPrograma.jsp">Agregar Programas</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
