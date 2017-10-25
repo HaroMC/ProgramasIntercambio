@@ -36,7 +36,7 @@
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Ver listado de Programas</a></li>
-                            <li><a href="#">Agregar Programas</a></li>
+                            <li><a href="agregarPrograma.jsp">Agregar Programas</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
