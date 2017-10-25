@@ -37,8 +37,10 @@ public class AgregarPrograma extends HttpServlet {
             throws ServletException, IOException {
         
         try {
+            
             DateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
             Programa objPrograma = new Programa();
+            String nom = request.getParameter("nombreDePrograma");
             
             //<editor-fold defaultstate="collapsed" desc=" Datos de prueba en crudo ">
             Asignatura objAsignatura = daoAsignatura.obtenerAsignatura();

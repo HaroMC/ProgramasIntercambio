@@ -61,12 +61,12 @@
                         <input type="radio" name="tipoPrograma" value="normal" checked="checked" />
                     </td>
                 </tr>
-                <!--<tr>
+                <tr>
                     <td>Pais Destino:</td>
                     <td>
                         <input type="text" name="pais"/>
                     </td>
-                </tr>-->
+                </tr>
                 <tr>
                     <td>Fecha de inicio:</td>
                     <td>
