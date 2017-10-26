@@ -22,18 +22,7 @@ public class AgregarPersona extends HttpServlet {
     public void init() {
         daoPersona = new PersonaDAO();
     }
-    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
+ 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -66,8 +55,4 @@ public class AgregarPersona extends HttpServlet {
         catch (HibernateException | ParseException ex) {}
     }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }
 }

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.cem.entities.Alumno;
+import org.cem.entities.Persona;
 
 /**
  *
@@ -26,19 +27,23 @@ public class AgregarAlumno extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Alumno a = new Alumno();
-        //AQUI VA PERSONA
         a.setRutPersona(Integer.parseInt(request.getParameter("rutPersona")));
-        //Matricula parseada
+        //ATRIBUTOS PERSONA
+        Persona p =new Persona();
+        a.setPersona(p);
         a.setNumeroMatricula(BigDecimal.valueOf(Double.parseDouble(request.getParameter("numeroMatricula"))));
-        //AQUI VA EL PARSEO DE LA FECHA MATRICULA
+        //Parseo FECHA
         
-        
-        
-        
-        //-------DAO
-        
-        //1.- DAO ALUMNO
-        //INSERTAR ALUMNO a 
+        //DAO .buscarAlumno(a.getRutPersona)
+        if (true) {
+            //SI EXISTE
+            //MENSAJE ALUMNO YA EXISTE
+        }
+        else{
+        //SINO
+        //DAO .agregarAlumno(a)
+        }
+         
         
     }
 

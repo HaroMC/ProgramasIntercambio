@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.cem.entities.Antecedente;
+import org.cem.entities.FamiliaAnfitriona;
 
 /**
  *
@@ -27,16 +28,13 @@ public class AgregarAntecedente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Antecedente a = new Antecedente();
-        //Parseo codigo
-        a.setCodigo(BigDecimal.valueOf(Double.parseDouble(request.getParameter("codigoAntecedente"))));
-        //AQUI VA DATOS DE FAMILIA ANFITRIONA
-        
+        a.setCodigo(BigDecimal.valueOf(Double.parseDouble(request.getParameter("codigo"))));
+        FamiliaAnfitriona f = new FamiliaAnfitriona();
+        //AQUI VA LA REFERENCIA DE LA FAMILIA ANFITRIONA
+        a.setFamiliaAnfitriona(f);
         a.setDescripcion(request.getParameter("descripcion"));
-        //AQUI VA PARSEO FECHA CADUCIDAD
-        
-        //AQUI VA PARSEO DEL DOCUMENTO
-        
-        
+        //PARSEO FECHA
+        //PARSEO DOCUMENTO
         //DAO ANTECEDENTE .agregarAntecedente(a)
     }
 
