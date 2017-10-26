@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>CEL Home</title>
         <!-- Link Bootstrap CSS -->
         <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" >
         <!--Link J.S.-->
