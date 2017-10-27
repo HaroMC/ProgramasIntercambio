@@ -53,37 +53,75 @@
             <p>Buscar una familia puedes hacerlo aqui:</p>
             <input class="form-control" id="myInput" type="text" placeholder="Escribe aca lo que buscas..">
             <br>
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody id="myTable">
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>john@example.com</td>
-                    </tr>
-                    <tr>
-                        <td>Mary</td>
-                        <td>Moe</td>
-                        <td>mary@mail.com</td>
-                    </tr>
-                    <tr>
-                        <td>July</td>
-                        <td>Dooley</td>
-                        <td>july@greatstuff.com</td>
-                    </tr>
-                    <tr>
-                        <td>Anja</td>
-                        <td>Ravendale</td>
-                        <td>a_r@test.com</td>
-                    </tr>
-                </tbody>
-            </table>
+            <form action="" method="">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre Jefe familia</th>
+                            <th>Cantidad de integrantes</th>
+                            <th>Rut</th>
+                            <th>Direccion</th>
+                            <th>Pais</th>
+                            <th>Eliminar</th>
+                            <th>Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr>
+                            <td><input type=text name="nombre"></td>
+                            <td><input type=number name="cantidad"></td>
+                            <td><input type=text name="rut"></td>
+                            <td><input type=text name="direccion"></td>
+                            <td><input type=text name="pais"></td>
+                            <td><button type="button" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-minus"></i>
+                                </button></td>
+                            <td><button type="button" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>Mary</td>
+                            <td>5</td>
+                            <td>9.805.788-6</td>
+                            <td>porahi 23</td>
+                            <td>EE.UU</td>
+                            <td><button type="button" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-minus"></i>
+                                </button></td>
+                            <td><button type="button" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>July</td>
+                            <td>2</td>
+                            <td>12.356.959-7</td>
+                            <td>poraca 7</td>
+                            <td>España</td>
+                            <td><button type="button" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-minus"></i>
+                                </button></td>
+                            <td><button type="button" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </button></td>
+                        <tr>
+                            <td>Anja</td>
+                            <td>3</td>
+                            <td>17.676.357-4</td>
+                            <td>poracuya 80</td>              
+                            <td>Canada</td>
+                            <td><button type="button" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-minus"></i>
+                                </button></td>
+                            <td><button type="button" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </button></td>
+                        </tr>
+                    </tbody>
+                    <input  type="submit" value="Enviar">
+                </table>
+            </form>
             <button type="button" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus"></span>
             </button>
