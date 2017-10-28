@@ -1,10 +1,7 @@
 package Servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,45 +10,49 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.cem.dao.AsignaturaDAO;
-import org.cem.dao.DocenteDAO;
 import org.cem.dao.ProgramaDAO;
-import org.cem.entities.Asignatura;
 import org.cem.entities.Programa;
 
+//Definicion del nombre con el cual el servlet debe ser llamado
 @WebServlet(name = "AgregarPrograma", urlPatterns = {"/AgregarPrograma"})
 public class AgregarPrograma extends HttpServlet {
 
-    private ProgramaDAO daoPrograma;
-    private AsignaturaDAO daoAsignatura;
-    private DocenteDAO daoDocente;
-
-    @Override
-    public void init() {
-        daoPrograma = new ProgramaDAO();
-        daoAsignatura = new AsignaturaDAO();
-    }
-
+    //Dejamos el metodo post ya que es el que utilizaremos
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        //Agregar un programa
+        
+        //PROCESO PARA INSERTAR UN PROGRAMA
+        
+        //Instanciamos el DAO que contience el metodo de agregar un programa
         ProgramaDAO pDAO = new ProgramaDAO();
+        
+        //Instanciamos un programa
         Programa p = new Programa();
-        p.setCodigo(pDAO.buscarUltimoID().add(BigDecimal.ONE));
-        //LA ASIGNATURA VA DESPUES (LA CREA EL CEL)
+        
+        //Asignamos los valores recibidos a los atributos de la instancia 
+        //(Excepto los atributos que no requieren ser enviados por el usuario)
+        
+        //Asignamos el codigo en BigDecimal (llamamos al metodo que retorna el ultimo numero)
+        //Harold despues de este commit arregla el problema que tenias aqui.
+        p.setCodigo(pDAO.buscarUltimoID().add(BigDecimal.valueOf(1)));
+        //Agregamos el nombre
         p.setNombre(request.getParameter("nombrePrograma"));
-        //FECHA INICIO
+        //FECHA INICIO (guardamos la fecha en un string, generamos un formato 
+        //simpledateformat, una fecha, y la fecha la igualamos al string parseado a 
+        //Simpledateformat que habiamos definido.)
         String tempDate = request.getParameter("fecha");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date fecha = new Date();
+        //realizamos el parseo dentro de un trycatch ya que SimpleDateFormat lo requiere así
         try {
             fecha = sdf.parse(tempDate);
-        } catch (ParseException ex) {
-
-        }
-        //FECHA TERMINO
+        } catch (ParseException ex) {}
+        try {
+            fecha = sdf.parse(tempDate);
+        }catch (ParseException ex) {
+        }    
+        //FECHA TERMINO (lo mismo de lo anterior)
         String tempDate2 = request.getParameter("fecha2");
         SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
         Date fecha2 = new Date();
@@ -61,45 +62,19 @@ public class AgregarPrograma extends HttpServlet {
         }
         p.setValor(Integer.parseInt(request.getParameter("valor")));
         p.setEstado("Sin CEL asignado");
+        //Llamamos a la funcion de agregar un programa, la cual requiere de un Programa (p)
         if (pDAO.agregar(p)) {
+            //Si el metodo, luego de realizar la insercion, retorna true, editamos el mensaje
+            //en el formulario de agregar programa.
             request.setAttribute("mensaje", "Programa agregado correctamente "
                     + "al sistema");
             request.getRequestDispatcher("agregarPrograma.jsp").
                     forward(request, response);
         } else {
+            //Si el metodo retorna false, informamos que el problema se encuentra en el DAO
             request.setAttribute("mensaje", "Error al llegar al DAO");
             request.getRequestDispatcher("agregarPrograma.jsp").
                     forward(request, response);
         }
-
-        /**
-         * try {
-         *
-         * DateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
-         * Programa objPrograma = new Programa(); String nom =
-         * request.getParameter("nombreDePrograma");
-         *
-         * //<editor-fold defaultstate="collapsed" desc=" Datos de prueba en crudo ">
-         * Asignatura objAsignatura = daoAsignatura.obtenerAsignatura();
-         * //</editor-fold>
-         *
-         * //<editor-fold defaultstate="collapsed" desc=" Datos de prueba en crudo ">
-         * objPrograma.setCodigo(BigDecimal.ZERO);
-         * objPrograma.setNombre(request.getParameter("nombreDePrograma")); Date
-         * fechaInicio =
-         * formatoFecha.parse(request.getParameter("fechaInicio"));
-         * objPrograma.setFechaInicio(fechaInicio); Date fechaTermino =
-         * formatoFecha.parse(request.getParameter("fechaTermino"));
-         * objPrograma.setFechaTermino(fechaTermino);
-         * objPrograma.setValor(Integer.parseInt(request.getParameter("valor")));
-         * objPrograma.setEstado("No publicado"); //</editor-fold>
-         *
-         * PrintWriter out = response.getWriter(); if
-         * (daoPrograma.agregar(objPrograma)) { out.println("Programa agregado
-         * correctamente."); } else { out.println("No se pudo agregar el
-         * programa."); } } catch (NumberFormatException | ParseException ex) {}
-         * }
-         *
-         */
     }
 }
