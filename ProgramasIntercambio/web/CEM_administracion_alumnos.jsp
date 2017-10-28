@@ -61,15 +61,26 @@
             <br>
             <table class="table table-bordered table-striped">
                 <thead>
-                    <tr>
-                        <th>Nombre del alumno</th>
-                        <th>ID</th>
-                        <th>Programa que cursa</th>
-                        <th>Carrera que cursa</th>
-                        <th>Numero de matricula</th>
-                        <th>Eliminar</th>
-                        <th>Editar</th>
-                    </tr>
+                    
+                <form action="AgregarAlumno" method="post">
+                    <td><input type="text" name="nombreAlumno" required=""/></td>
+                    <td><input type="text" name="idAlumno" required=""/> </td>
+                    <td><input type="text" name="Desarrollo WEB" required=""/></td>
+                    <td><input type="text" name="Ingeniería en Informática" required=""/></td>
+                    <td><input type="text" name="7731262" required=""/></td>
+                    <td><input type="submit" value="Agregar" class="btn btn-primary" required=""/>
+                    </td>
+                </form>
+                
+                <tr>
+                    <th>Nombre del alumno</th>
+                    <th>ID</th>
+                    <th>Programa que cursa</th>
+                    <th>Carrera que cursa</th>
+                    <th>Numero de matricula</th>
+                    <th>Eliminar</th>
+                    <th>Editar</th>
+                </tr>
                 </thead>
                 <tbody id="myTable">
                     <tr>
@@ -179,20 +190,20 @@
             <button type="button" class="btn btn-primary">
                 <i class="glyphicon glyphicon-pencil"></i>
             </button>
-             <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary">
                 <i class="glyphicon glyphicon-minus"></i>
             </button>
-            
+
         </div>
     </body>
-         <script>
-            $(document).ready(function () {
-                $("#myInput").on("keyup", function () {
-                    var value = $(this).val().toLowerCase();
-                    $("#myTable tr").filter(function () {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        </script>
+        });
+    </script>
 </html>
