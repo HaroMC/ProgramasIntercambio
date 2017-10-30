@@ -12,7 +12,7 @@ import java.util.Set;
  */
 public class Programa  implements java.io.Serializable {
 
-
+     //
      private BigDecimal codigo;
      private Asignatura asignatura;
      private String nombre;

@@ -28,7 +28,7 @@ public class ProgramaDAO implements ICrud {
             resultado = true;
         }
         catch (HibernateException hex) {
-            throw new HibernateException("Error: ", hex);
+            throw new HibernateException("Error DAO: ", hex);
         }
         finally {
             session.close();

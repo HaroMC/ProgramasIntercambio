@@ -26,10 +26,13 @@ public class AgregarAlumno extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Persona p =new Persona();
+        p.setNombreCompleto(request.getParameter("nombreAlumno"));
+        
         Alumno a = new Alumno();
+        
         a.setRutPersona(Integer.parseInt(request.getParameter("rutPersona")));
         //ATRIBUTOS PERSONA
-        Persona p =new Persona();
         a.setPersona(p);
         a.setNumeroMatricula(BigDecimal.valueOf(Double.parseDouble(request.getParameter("numeroMatricula"))));
         //Parseo FECHA

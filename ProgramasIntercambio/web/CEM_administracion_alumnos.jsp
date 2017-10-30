@@ -59,75 +59,83 @@
             <p>Buscar un alumno puedes hacerlo aqui:</p>
             <input class="form-control" id="myInput" type="text" placeholder="Escribe aca lo que buscas..">
             <br>
-            <form action="">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Nombre del alumno</th>
-                            <th>ID</th>
-                            <th>Programa que cursa</th>
-                            <th>Carrera que cursa</th>
-                            <th>Numero de matricula</th>
-                            <th>Eliminar</th>
-                            <th>Editar</th>
-                        </tr>
-                    </thead>
-                    <tbody id="myTable">
-                        <tr>
-                            <td><input type=text name="nombre"></td>
-                            <td><input type=number name="id"></td><!-- este cambio se genera solo por ende si lo necesitas sacar para probar solo los datos entrantes, hazlo -->
-                            <td><input type=text name="Programa"></td>
-                            <td><input type=text name="carrera"></td>
-                            <td><input type=number name="numMatri"></td><!-- este cambio se genera solo por ende si lo necesitas sacar para probar solo los datos entrantes, hazlo -->
-                            <td><button type="button" class="btn btn-primary">
-                                    <i class="glyphicon glyphicon-minus"></i>
-                                </button></td>
-                            <td><button type="button" class="btn btn-primary">
-                                    <i class="glyphicon glyphicon-pencil"></i>
-                                </button></td>
-                        </tr>
-                        <tr>
-                            <td>Mary</td>
-                            <td>0088</td>
-                            <td>Desarrollo Full Stack</td>
-                            <td>Ingenieria en Informatica</td>
-                            <td>78545412</td>
-                            <td><button type="button" class="btn btn-primary">
-                                    <i class="glyphicon glyphicon-minus"></i>
-                                </button></td>
-                            <td><button type="button" class="btn btn-primary">
-                                    <i class="glyphicon glyphicon-pencil"></i>
-                                </button></td>
-                        </tr>
-                        <tr>
-                            <td>July</td>
-                            <td>0090</td>
-                            <td>Gestion de Personas</td>
-                            <td>Recursos Humanos</td>
-                            <td>785545489</td>
-                            <td><button type="button" class="btn btn-primary">
-                                    <i class="glyphicon glyphicon-minus"></i>
-                                </button></td>
-                            <td><button type="button" class="btn btn-primary">
-                                    <i class="glyphicon glyphicon-pencil"></i>
-                                </button></td>
-                        <tr>
-                            <td>Anja</td>
-                            <td>0091</td>
-                            <td>Pasteleria internacional</td>
-                            <td>COcina</td>              
-                            <td>456232871</td>
-                            <td><button type="button" class="btn btn-primary">
-                                    <i class="glyphicon glyphicon-minus"></i>
-                                </button></td>
-                            <td><button type="button" class="btn btn-primary">
-                                    <i class="glyphicon glyphicon-pencil"></i>
-                                </button></td>
-                        </tr>
-                        <input  type="submit" value="Enviar">
-                    </tbody>
-                </table>
-            </form>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    
+                <form action="AgregarAlumno" method="post">
+                    <td><input type="text" name="nombreAlumno" required=""/></td>
+                    <td><input type="text" name="idAlumno" required=""/> </td>
+                    <td><input type="text" name="Desarrollo WEB" required=""/></td>
+                    <td><input type="text" name="Ingeniería en Informática" required=""/></td>
+                    <td><input type="text" name="7731262" required=""/></td>
+                    <td><input type="submit" value="Agregar" class="btn btn-primary" required=""/>
+                    </td>
+                </form>
+                
+                <tr>
+                    <th>Nombre del alumno</th>
+                    <th>ID</th>
+                    <th>Programa que cursa</th>
+                    <th>Carrera que cursa</th>
+                    <th>Numero de matricula</th>
+                    <th>Eliminar</th>
+                    <th>Editar</th>
+                </tr>
+                </thead>
+                <tbody id="myTable">
+                    <tr>
+                        <td>John</td>
+                        <td>0083</td>
+                        <td>Desarrollo en MEAN</td>
+                        <td>Ingenieria en informatica</td>
+                        <td>7548569</td>
+                        <td><button type="button" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-minus"></i>
+                            </button></td>
+                        <td><button type="button" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </button></td>
+                    </tr>
+                    <tr>
+                        <td>Mary</td>
+                        <td>0088</td>
+                        <td>Desarrollo Full Stack</td>
+                        <td>Ingenieria en Informatica</td>
+                        <td>78545412</td>
+                        <td><button type="button" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-minus"></i>
+                            </button></td>
+                        <td><button type="button" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </button></td>
+                    </tr>
+                    <tr>
+                        <td>July</td>
+                        <td>0090</td>
+                        <td>Gestion de Personas</td>
+                        <td>Recursos Humanos</td>
+                        <td>785545489</td>
+                        <td><button type="button" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-minus"></i>
+                            </button></td>
+                        <td><button type="button" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </button></td>
+                    <tr>
+                        <td>Anja</td>
+                        <td>0091</td>
+                        <td>Pasteleria internacional</td>
+                        <td>COcina</td>              
+                        <td>456232871</td>
+                        <td><button type="button" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-minus"></i>
+                            </button></td>
+                        <td><button type="button" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </button></td>
+                    </tr>
+                </tbody>
+            </table>
             <button type="button" class="btn btn-primary">
                 <i class="glyphicon glyphicon-plus"> Agregar un Alumno</i>
             </button>
@@ -182,20 +190,20 @@
             <button type="button" class="btn btn-primary">
                 <i class="glyphicon glyphicon-pencil"></i>
             </button>
-             <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary">
                 <i class="glyphicon glyphicon-minus"></i>
             </button>
-            
+
         </div>
     </body>
-         <script>
-            $(document).ready(function () {
-                $("#myInput").on("keyup", function () {
-                    var value = $(this).val().toLowerCase();
-                    $("#myTable tr").filter(function () {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        </script>
+        });
+    </script>
 </html>
